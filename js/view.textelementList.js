@@ -19,6 +19,7 @@ TextElementItemView = (function(){
   function TextElementItemView(todo, $el) {
     this.todo = todo;
     this.$text = todo.text;
+    console.log(todo.text);
     this.$el = $el;    
     this.offset = this.$el.offset();
 
@@ -60,6 +61,7 @@ TextElementItemView = (function(){
       var val;
       console.log(that.textarea.val());
       val = that.textarea.val().replace(/\n/g, '<br>');
+      // val = that.textarea.val;
       that.textarea.remove();
       that.savebutton.remove();
       that.$el.html(val);

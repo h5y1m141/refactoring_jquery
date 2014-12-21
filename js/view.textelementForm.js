@@ -1,12 +1,12 @@
 function TextElementFormView($el){
   this.$input = $el;
-  this.$input.click(this.onsubmit.bind(this));
+  this.$input.click(this.onclick.bind(this));
 
 }
 
-TextElementFormView.prototype.onsubmit = function(e){
+TextElementFormView.prototype.onclick = function(e){
   e.preventDefault();
   var text;
-  text = $(this.$input[0])[0].innerText;
+  text = this.$input[0].innerText;
   Todo.add(text);
 };
