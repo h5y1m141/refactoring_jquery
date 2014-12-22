@@ -1,26 +1,26 @@
-var Todo;
-Todo = (function(){
-  function Todo(data) {
+var TextElement;
+TextElement = (function(){
+  function TextElement(data) {
     this.text = data.text;
     this.complete = !!data.complete;
   }
-  Todo.prototype.setComplete =function(complete){
+  TextElement.prototype.setComplete =function(complete){
     this.complete = !!complete;
     this.trigger('change:complete', this);
   };
 
-  Todo.list = [];
+  TextElement.list = [];
 
-  Todo.add = function(text){
-    var todo;
-    todo = new Todo({ text:text });
-    Todo.list.push(todo);
-    this.trigger('add', todo);
+  TextElement.add = function(text){
+    var textelement;
+    textelement = new TextElement({ text:text });
+    TextElement.list.push(textelement);
+    this.trigger('add', textelement);
   };
 
-  return Todo;
+  return TextElement;
 })();
 
-$.extend(Todo.prototype, Backbone.Events);
-$.extend(Todo, Backbone.Events);
+$.extend(TextElement.prototype, Backbone.Events);
+$.extend(TextElement, Backbone.Events);
 
