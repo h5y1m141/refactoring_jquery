@@ -9,7 +9,7 @@ TextElementFormView = (function(){
     e.preventDefault();
     var text;
     text = this.$input[0].innerText;
-    Todo.add(text);
+    TextElement.add(text);
   };
   return TextElementFormView;
 })();
