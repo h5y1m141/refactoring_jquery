@@ -34,7 +34,7 @@ TextElementItemView = (function(){
       fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
       zIndex: 1,
       background: 'rgba(255,255,255,0.9)'
-    }).val(this.$el.html());
+    }).val(this.$text);
     this.savebutton = $('<div id="save" class="btn">').css({
       display: 'block',
       position: 'absolute',
