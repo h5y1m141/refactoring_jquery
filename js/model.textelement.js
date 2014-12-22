@@ -23,4 +23,4 @@ Todo = (function(){
 
 $.extend(Todo.prototype, Backbone.Events);
 $.extend(Todo, Backbone.Events);
-console.log(Todo.add);
+
