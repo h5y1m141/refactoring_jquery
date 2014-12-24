@@ -28,6 +28,14 @@
         return expect(this.formView.onclick).toHaveBeenCalled();
       });
 
+      it('TextElementのクラスメソッドが一度呼ばれる', function(){
+        var textelement, _element = '<ul><li>text</li></ul>';
+        textelement = spyOn(TextElement, 'add');
+        formView = new TextElementFormView($(_element));
+        formView.onclick();
+        expect(textelement.calls.count()).toEqual(1);
+      });
+
     });
     
     
