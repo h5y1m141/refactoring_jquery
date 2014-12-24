@@ -34,6 +34,22 @@ SaveButton = Backbone.View.extend({
     $(this.textarea).remove();
     this.$$el.html(val);
     return;
+  }
+});
+
+
+SaveButton = Backbone.View.extend({
+  tagName: "div",
+  events:{
+    "click" : "updateContents"
+  },
+  updateContents: function(){
+    var val;
+    val = $(this.textarea).val().replace(/\n/g, '<br>');
+    this.remove();
+    $(this.textarea).remove();
+    this.$$el.html(val);
+    return;
   },
   initialize: function (obj) {
     this.$text = obj._text;
