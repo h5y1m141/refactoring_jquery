@@ -1,16 +1,17 @@
 var TextElementItemView;
-TextElementItemView = (function(){
-  function TextElementItemView(todo, $el) {
+TextElementItemView = Backbone.View.extend({
+  initialize: function (todo, $el) {
+    this.$el = $el;    
     this.todo = todo;
     this.$text = todo.text;
     this.$el = $el;    
     this.offset = this.$el.offset();
     this.textarea = null;
     this.savebutton = null;
-    this.init();
+    this.render();
 
-  }
-  TextElementItemView.prototype.init = function(){
+  },
+  render: function () {
     this.prepareTextarea();
     this.prepareSaveButton();
     // この後のthis.savebutton()からは
@@ -30,15 +31,14 @@ TextElementItemView = (function(){
     });
     $('body').append(that.savebutton);
     $('body').append(that.textarea);
-    return;
-  };
-  TextElementItemView.prototype.save = function(e){
+  },
+  save :function(){
     var _textElement;
     _textElement = new TextElement(this.$el);
     _textElement.add();
     console.log("TextElement.add() called");
-  };
-  TextElementItemView.prototype.prepareTextarea = function(e){
+  },
+  prepareTextarea: function(){
     this.textarea = $('<textarea>').css({
       display: 'block',
       position: 'absolute',
@@ -49,10 +49,10 @@ TextElementItemView = (function(){
       fontSize: 14,
       fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
       zIndex: 1,
-      background: 'rgba(255,255,255,0.9)'
+      background: 'rgba(255,255,255,1.0)'
     }).val(this.$text);
-  };
-  TextElementItemView.prototype.prepareSaveButton = function(e){
+  },
+  prepareSaveButton: function(){
     this.savebutton = $('<div id="save" class="btn">').css({
       display: 'block',
       position: 'absolute',
@@ -67,9 +67,8 @@ TextElementItemView = (function(){
       color: '#f9f9f9',
       cursor: 'pointer'
     }).text('save');
-  };
+  }
+});
 
-  return TextElementItemView;
-})();
 
 
