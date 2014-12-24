@@ -1,9 +1,9 @@
 (function() {
-  describe("Todo", function() {
+  describe("TextElement", function() {
     beforeEach(function() {
       var data;
       data = {text: "test"};
-      return this.todo = new Todo(data);
+      return this.todo = new TextElement(data);
     });
     
     it('should be init Class', function() {
